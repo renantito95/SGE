@@ -7,7 +7,7 @@ SGE - Saídas
 {% block content %}
 
 {% if perms.outflows.view_outflow %}
-{% include 'components/_sales_metrics.html' %}
+  {% include 'components/_sales_metrics.html' %}
 {% endif %}
 
 <div class="mb-4"></div>
@@ -23,12 +23,13 @@ SGE - Saídas
       </div>
     </form>
   </div>
+
   {% if perms.outflows.add_outflow %}
-  <div class="col-md-6">
-    <a href="{% url 'outflow_create' %}" class="btn btn-success float-end">
-      <i class="bi bi-plus"></i> Nova Saída
-    </a>
-  </div>
+    <div class="col-md-6">
+      <a href="{% url 'outflow_create' %}" class="btn btn-success float-end">
+        <i class="bi bi-plus"></i> Nova Saída
+      </a>
+    </div>
   {% endif %}
 </div>
 
@@ -46,22 +47,22 @@ SGE - Saídas
     </thead>
     <tbody>
       {% for outflow in outflows %}
-      <tr>
-        <td>
-          <a href="{% url 'outflow_detail' outflow.id %}" class="text-primary fw-semibold">
-            {{ outflow.id }}
-          </a>
-        </td>
-        <td>{{ outflow.product }}</td>
-        <td>{{ outflow.supplier }}</td>
-        <td>{{ outflow.quantity }}</td>
-        <td>{{ outflow.created_at }}</td>
-        <td>
-          <a href="{% url 'outflow_detail' outflow.id %}" class="btn btn-info btn-sm">
-            <i class="bi bi-eye"></i>
-          </a>
-        </td>
-      </tr>
+          <tr>
+            <td>
+              <a href="{% url 'outflow_detail' outflow.id %}" class="text-primary fw-semibold">
+                {{ outflow.id }}
+              </a>
+            </td>
+            <td>{{ outflow.product }}</td>
+            <td>{{ outflow.supplier }}</td>
+            <td>{{ outflow.quantity }}</td>
+            <td>{{ outflow.created_at }}</td>
+            <td>
+              <a href="{% url 'outflow_detail' outflow.id %}" class="btn btn-info btn-sm">
+                <i class="bi bi-eye"></i>
+              </a>
+            </td>
+          </tr>
       {% endfor %}
     </tbody>
   </table>
