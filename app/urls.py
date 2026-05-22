@@ -33,4 +33,7 @@ urlpatterns = [
     path('', include('inflows.urls')),
     path('', include('outflows.urls')),
     path('', include('products.urls')),
+
+    path('api/v1/brands', views.BrandCreateListAPIView.as_view(), name='brand-create-list-api-view'),
+    path('api/v1/brands/<int:pk>/', views.BrandRetrieveUpdateDestroyAPIView.as_view.as_view(), name='brand-detail-api-view')
 ]
