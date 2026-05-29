@@ -38,6 +38,7 @@ def get_sales_metrics():
         total_sales_profit=number_format(total_sales_profit, decimal_pos=2, force_grouping=True),
     )
 
+
 def get_daily_sales_data():
     today = timezone.now().date()
     dates = [str(today - timezone.timedelta(days=i)) for i in range(6, -1, -1)]
@@ -65,7 +66,7 @@ def get_daily_sales_quantity_data():
     for date in dates:
         sales_quantity = Outflow.objects.filter(created_at__date=date).count()
         quantities.append(sales_quantity)
-    
+
     return dict(
         dates=dates,
         values=quantities,

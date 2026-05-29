@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime  # noqa: F401
 
 from django.db import models
 from products.models import Product

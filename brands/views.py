@@ -20,7 +20,7 @@ class BrandListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
             queryset = queryset.filter(name__icontains=name)
 
         return queryset
-    
+
 
 class BrandCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = models.Brand
@@ -42,7 +42,6 @@ class BrandUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     form_class = forms.BrandForm
     success_url = reverse_lazy('brand_list')
     permission_required = 'brands.change_brand'
-
 
 
 class BrandDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
